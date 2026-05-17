@@ -347,14 +347,14 @@ export default function App() {
         </section>
 
         {/* Quick Actions Section */}
-        <section className="px-4 flex gap-4">
-           <button className="flex-1 py-5 bg-white text-black/60 rounded-xl text-[10px] font-bold tracking-widest transition-all uppercase flex items-center justify-center gap-2 mt-2">
+        <section className="px-4 flex gap-4 py-12">
+           <button className="flex-1 py-5 bg-white text-black/60 rounded-md text-[10px] font-bold tracking-widest transition-all uppercase flex items-center justify-center gap-2">
              <MessageSquare size={14} />
              Contact Us
            </button>
            <button 
              onClick={() => setIsFAQOpen(true)}
-             className="flex-1 py-5 bg-white text-black/60 rounded-xl text-[10px] font-bold tracking-widest transition-all uppercase flex items-center justify-center gap-2 mt-2"
+             className="flex-1 py-5 bg-white text-black/60 rounded-md text-[10px] font-bold tracking-widest transition-all uppercase flex items-center justify-center gap-2"
            >
              <HelpCircle size={14} />
              FAQ
