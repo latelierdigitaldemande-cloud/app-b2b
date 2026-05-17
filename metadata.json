@@ -1,0 +1,12 @@
+{
+  "name": "FleetFlow Pro",
+  "description": "Enterprise-grade PWA for corporate fleet management, local mobility booking, and AI-driven travel optimization.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

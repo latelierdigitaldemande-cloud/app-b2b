@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-primary: #141414;
+  --color-brand-secondary: #F4F4F5;
+  --color-accent: #3b82f6;
+  
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2.25rem;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--color-brand-secondary)] text-[var(--color-brand-primary)] antialiased font-sans select-none touch-pan-y;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.native-card {
+  @apply bg-white rounded-[1.7rem] border border-black/[0.03] shadow-[0_4px_20px_-8px_rgba(0,0,0,0.05)] active:scale-[0.98] transition-transform;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
