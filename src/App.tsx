@@ -26,7 +26,8 @@ import {
   UserCheck,
   Plus,
   MessageSquare,
-  HelpCircle
+  HelpCircle,
+  ArrowUpRight
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
@@ -210,22 +211,17 @@ export default function App() {
 
   return (
     <div className="h-screen bg-[var(--color-brand-secondary)] flex flex-col overflow-y-auto hide-scrollbar max-w-md mx-auto relative shadow-2xl">
-      {/* Top Announcement Bar */}
-      <div className="bg-black text-white py-5 text-center text-[9px] font-bold tracking-[0.3em] uppercase shrink-0 z-50">
-        Worldwide Elite Service • 24/7 Concierge
-      </div>
-
-      {/* Native System Header Simulation */}
-      <div className="absolute top-[52px] left-0 right-0 z-40 pt-10 px-4 flex justify-between items-center bg-transparent pointer-events-none">
-        <div className="pointer-events-auto">
-          <h1 className="text-[10px] font-semibold tracking-[0.1em] text-white/50 mb-1">FleetFlow Pro</h1>
-          <p className="text-xl font-bold font-sans tracking-tight text-white">Enterprise Mobility</p>
+      {/* Top Header Bar */}
+      <div className="bg-black text-white py-8 px-6 shrink-0 z-50 flex justify-between items-center">
+        <div>
+          <h1 className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/50 mb-0.5">FleetFlow Pro</h1>
+          <p className="text-xl font-bold font-sans tracking-tight text-white leading-none">Enterprise Mobility</p>
         </div>
-        <div className="flex gap-4 pointer-events-auto">
-           <div className="w-10 h-10 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-2xl">
+        <div className="flex gap-3">
+           <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center shadow-lg">
               <Zap size={18} className={isComparing ? "text-blue-500" : "text-white/30"} />
            </div>
-           <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-2xl">
+           <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-lg">
               <Users size={18} className="text-black" />
            </div>
         </div>
@@ -234,9 +230,9 @@ export default function App() {
       <div className="flex-1 space-y-12 pb-8">
         {/* Hero Section */}
         <section className="">
-          <div className="relative h-[80vh] rounded-b-[2rem] overflow-hidden group isolate">
+          <div className="relative h-[85vh] overflow-hidden group isolate">
             <img 
-              src="https://res.cloudinary.com/dopnnowvl/image/upload/f_auto,q_auto/Image_13-04-2026_à_00.37_rj8ngz" 
+              src="https://res.cloudinary.com/dopnnowvl/image/upload/f_auto,q_auto/Image_13-04-2026_à_00.37_rmaerq" 
               alt="Elite Service Car" 
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000"
             />
@@ -247,11 +243,12 @@ export default function App() {
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-400"></div>
                 <span className="text-[10px] font-bold text-white/60 tracking-wider">Premium Experience</span>
               </div>
-              <h1 className="text-5xl font-bold text-white font-sans tracking-tight mb-8 leading-[1.1]">
+              <h1 className="text-[41px] font-bold text-white font-sans tracking-tight mb-8 leading-[1.1]">
                 Future of <br/> Luxury Travel
               </h1>
-              <button className="bg-white text-black text-xs font-bold px-10 py-5 rounded-2xl transition-all shadow-xl">
+              <button className="bg-white text-black text-sm font-bold px-[46px] py-[21px] rounded-full transition-all shadow-xl flex items-center gap-3 group/btn hover:bg-opacity-90">
                 Explore Fleet
+                <ArrowUpRight size={18} className="transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
               </button>
             </div>
           </div>
@@ -261,12 +258,12 @@ export default function App() {
         <section className="space-y-6">
            <div className="px-4 flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <h2 className="text-xl font-bold font-sans tracking-tight text-black/80">Meilleures offres</h2>
+                <h2 className="text-[23px] font-bold font-sans tracking-tight text-black/80">Meilleures offres</h2>
                 <ChevronRight size={18} className="text-black/30" />
               </div>
            </div>
            
-           <div className="px-4 h-[255px]">
+           <div className="px-4 h-[330px]">
               <OffersCarousel />
            </div>
         </section>
@@ -275,7 +272,7 @@ export default function App() {
         <section className="space-y-6">
            <div className="px-4 flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <h2 className="text-xl font-bold font-sans tracking-tight text-black/80">Elite services</h2>
+                <h2 className="text-[23px] font-bold font-sans tracking-tight text-black/80">Elite services</h2>
                 <ChevronRight size={18} className="text-black/30" />
               </div>
            </div>
@@ -293,7 +290,7 @@ export default function App() {
         <section className="space-y-6">
            <div className="px-4 flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <h2 className="text-xl font-bold font-sans tracking-tight text-black/80">Discover our vehicles</h2>
+                <h2 className="text-[23px] font-bold font-sans tracking-tight text-black/80">Discover our vehicles</h2>
                 <ChevronRight size={18} className="text-black/30" />
               </div>
            </div>
@@ -335,7 +332,7 @@ export default function App() {
         <section className="space-y-6 overflow-hidden">
            <div className="px-4 flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <h2 className="text-xl font-bold font-sans tracking-tight text-black/80">Premium lifestyle</h2>
+                <h2 className="text-[23px] font-bold font-sans tracking-tight text-black/80">Premium lifestyle</h2>
                 <ChevronRight size={18} className="text-black/30" />
               </div>
            </div>
@@ -393,7 +390,7 @@ export default function App() {
         <section className="px-4 space-y-6">
            <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <h2 className="text-xl font-bold font-sans tracking-tight text-black/80">Recent activity</h2>
+                <h2 className="text-[23px] font-bold font-sans tracking-tight text-black/80">Recent activity</h2>
                 <ChevronRight size={18} className="text-black/30" />
               </div>
            </div>
