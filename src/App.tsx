@@ -24,7 +24,9 @@ import {
   AlertCircle,
   Plane,
   UserCheck,
-  Plus
+  Plus,
+  MessageSquare,
+  HelpCircle
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
@@ -216,7 +218,7 @@ export default function App() {
         </div>
         <div className="flex gap-4 pointer-events-auto">
            <div className="w-10 h-10 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-2xl">
-              <Zap size={18} className={isComparing ? "animate-pulse text-blue-500" : "text-white/30"} />
+              <Zap size={18} className={isComparing ? "text-blue-500" : "text-white/30"} />
            </div>
            <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-2xl">
               <Users size={18} className="text-black" />
@@ -227,23 +229,23 @@ export default function App() {
       <div className="flex-1 space-y-12 pb-8">
         {/* Hero Section */}
         <section className="">
-          <div className="relative h-[520px] rounded-b-[3.5rem] overflow-hidden group">
+          <div className="relative h-[80vh] rounded-b-[3.5rem] overflow-hidden group">
             <img 
               src="https://res.cloudinary.com/dopnnowvl/image/upload/f_auto,q_auto/Image_13-04-2026_à_00.37_rj8ngz" 
               alt="Elite Service Car" 
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
             
             <div className="absolute bottom-10 left-8 right-8">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></div>
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-400"></div>
                 <span className="text-[10px] font-bold text-white/60 tracking-wider">Premium Experience</span>
               </div>
               <h1 className="text-5xl font-bold text-white font-sans tracking-tight mb-8 leading-[1.1]">
                 Future of <br/> Luxury Travel
               </h1>
-              <button className="bg-white text-black text-xs font-bold px-10 py-5 rounded-2xl hover:bg-blue-600 hover:text-white transition-all shadow-xl active:scale-95">
+              <button className="bg-white text-black text-xs font-bold px-10 py-5 rounded-2xl transition-all shadow-xl">
                 Explore Fleet
               </button>
             </div>
@@ -259,7 +261,7 @@ export default function App() {
               </div>
            </div>
            
-           <div className="px-4 h-[220px]">
+           <div className="px-4 h-[255px]">
               <OffersCarousel />
            </div>
         </section>
@@ -344,13 +346,15 @@ export default function App() {
 
         {/* Quick Actions Section */}
         <section className="px-4 flex gap-4">
-           <button className="flex-1 py-5 bg-white text-black/60 rounded-xl text-[10px] font-bold tracking-widest hover:bg-white/80 transition-all active:scale-95 uppercase shadow-sm">
+           <button className="flex-1 py-5 bg-white text-black/60 rounded-xl text-[10px] font-bold tracking-widest transition-all uppercase flex items-center justify-center gap-2 mt-2">
+             <MessageSquare size={14} />
              Contact Us
            </button>
            <button 
              onClick={() => setIsFAQOpen(true)}
-             className="flex-1 py-5 bg-white text-black/60 rounded-xl text-[10px] font-bold tracking-widest hover:bg-white/80 transition-all active:scale-95 uppercase shadow-sm"
+             className="flex-1 py-5 bg-white text-black/60 rounded-xl text-[10px] font-bold tracking-widest transition-all uppercase flex items-center justify-center gap-2 mt-2"
            >
+             <HelpCircle size={14} />
              FAQ
            </button>
         </section>
@@ -358,7 +362,7 @@ export default function App() {
         {/* Section 1: Overview & Intelligence */}
         <section className="px-4 space-y-8">
           <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-3xl blur opacity-20 transition-opacity"></div>
             <div className="relative bg-white p-6 rounded-[1.5rem] border border-black/5 shadow-sm">
               <p className="text-[10px] font-bold text-blue-600 mb-4 flex items-center gap-2">
                 <Zap size={12} fill="currentColor" /> Live Intelligence
@@ -367,8 +371,8 @@ export default function App() {
                 "Welcome Jane. Corporate demand is peaking in South District. Suggest optimizing GreenCommute routes for current arrivals."
               </p>
               <div className="flex gap-3">
-                <button className="text-[10px] bg-black text-white px-6 py-3 rounded-xl font-bold uppercase tracking-wider active:scale-95 transition-transform">Optimize Ledger</button>
-                <button className="text-[10px] bg-black/5 text-black/40 px-6 py-3 rounded-xl font-bold uppercase tracking-wider active:scale-95 transition-transform">Dismiss</button>
+                <button className="text-[10px] bg-black text-white px-6 py-3 rounded-xl font-bold uppercase tracking-wider">Optimize Ledger</button>
+                <button className="text-[10px] bg-black/5 text-black/40 px-6 py-3 rounded-xl font-bold uppercase tracking-wider">Dismiss</button>
               </div>
             </div>
           </div>
@@ -391,7 +395,7 @@ export default function App() {
 
            <div className="space-y-4">
               {bookings.length > 0 ? bookings.map(b => (
-                <div key={b.id} className="bg-white p-5 rounded-[1.5rem] border border-black/5 flex flex-col gap-5 active:scale-[0.98] transition-transform shadow-sm">
+                <div key={b.id} className="bg-white p-5 rounded-[1.5rem] border border-black/5 flex flex-col gap-5 shadow-sm">
                    <div className="flex justify-between items-start">
                       <div>
                          <p className="text-[10px] font-bold tracking-tight opacity-20 uppercase mb-1">Record ID: {b.id.slice(-6)}</p>
@@ -419,7 +423,7 @@ export default function App() {
         {/* Section 4: Profile & Settings */}
         <section className="px-4 pb-20 space-y-10">
            <div className="flex flex-col items-center py-12 bg-white rounded-[2.2rem] border border-black/5 shadow-sm">
-              <div className="w-28 h-28 rounded-[1.9rem] bg-black text-white flex items-center justify-center text-5xl font-bold font-sans shadow-2xl mb-6 active:scale-95 transition-transform">
+              <div className="w-28 h-28 rounded-[1.9rem] bg-black text-white flex items-center justify-center text-5xl font-bold font-sans shadow-2xl mb-6">
                 FF
               </div>
               <h2 className="text-2xl font-bold tracking-tight">Acme Solutions</h2>
@@ -438,7 +442,7 @@ export default function App() {
            </div>
 
            <div className="p-8 bg-black text-white rounded-[1.9rem] text-center shadow-2xl shadow-black/30 relative overflow-hidden group">
-              <div className="relative z-10 transition-transform group-hover:scale-105 duration-500">
+              <div className="relative z-10 transition-transform duration-500">
                 <p className="text-[10px] font-bold opacity-30 mb-3">Billing Cycle Progress</p>
                 <div className="flex items-baseline justify-center gap-2 mb-2">
                    <p className="text-4xl font-bold tracking-tighter font-sans">14</p>
@@ -453,7 +457,7 @@ export default function App() {
                    />
                 </div>
               </div>
-              <div className="absolute -left-12 -top-12 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-700">
+              <div className="absolute -left-12 -top-12 opacity-[0.03] transition-opacity duration-700">
                  <Briefcase size={200} />
               </div>
            </div>
@@ -487,7 +491,7 @@ export default function App() {
                 <h2 className="text-2xl font-bold tracking-tight">Common Questions</h2>
                 <button 
                   onClick={() => setIsFAQOpen(false)}
-                  className="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center text-black/40 hover:bg-black/10 transition-colors"
+                  className="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center text-black/40 transition-colors"
                 >
                   <Plus size={20} className="rotate-45" />
                 </button>
@@ -507,7 +511,7 @@ export default function App() {
 
               <button 
                 onClick={() => setIsFAQOpen(false)}
-                className="w-full mt-8 py-5 bg-black text-white rounded-2xl text-[10px] font-bold tracking-widest uppercase shadow-xl active:scale-95 transition-transform"
+                className="w-full mt-8 py-5 bg-black text-white rounded-2xl text-[10px] font-bold tracking-widest uppercase shadow-xl"
               >
                 Done
               </button>
@@ -577,64 +581,30 @@ const FleetCard: React.FC<{ fleet: Fleet, onBook: (f: Fleet) => any, isRecommend
   return (
     <motion.div 
       className={cn(
-        "native-card overflow-hidden flex flex-col group active:scale-[0.98] transition-all",
+        "native-card overflow-hidden group transition-all relative h-[200px]",
         isRecommended && "ring-2 ring-blue-500 ring-offset-4 shadow-2xl"
       )}
     >
-      <div className="relative h-52 overflow-hidden">
-        <img 
-          src={fleet.image} 
-          alt={fleet.name} 
-          className="w-full h-full object-cover grayscale-[15%] group-hover:scale-110 group-hover:grayscale-0 transition-all duration-1000 ease-out"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-        <div className="absolute bottom-5 left-5 text-white">
-           <div className="flex items-center gap-2 mb-1.5">
-             <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></div>
-             <p className="text-[9px] font-bold tracking-wide opacity-80">{fleet.features[0]}</p>
-           </div>
-           <h4 className="text-xl font-bold font-sans tracking-tight leading-none">{fleet.name}</h4>
+      <img 
+        src={fleet.image} 
+        alt={fleet.name} 
+        className="absolute inset-0 w-full h-full object-cover grayscale-[15%] transition-all duration-1000 ease-out"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+      
+      {isRecommended && (
+        <div className="absolute top-5 right-5 bg-blue-500 text-white px-3.5 py-1.5 rounded-full text-[10px] font-bold tracking-wider shadow-xl flex items-center gap-2 ring-4 ring-blue-500/20">
+          <Zap size={10} fill="currentColor" /> Smart Match
         </div>
-        
-        {isRecommended && (
-          <div className="absolute top-5 right-5 bg-blue-500 text-white px-3.5 py-1.5 rounded-full text-[10px] font-bold tracking-wider shadow-xl flex items-center gap-2 ring-4 ring-blue-500/20">
-            <Zap size={10} fill="currentColor" /> Smart Match
-          </div>
-        )}
-      </div>
+      )}
 
-      <div className="p-6 space-y-6">
-        <div className="flex justify-between items-center px-1">
-           <div className="flex items-center gap-1.5 text-xs font-bold">
-              <Star size={14} className="fill-amber-400 text-amber-400" />
-              <span>{fleet.rating}</span>
-           </div>
-           <div className="flex -space-x-2">
-              {[1,2,3].map(i => (
-                 <div key={i} className="w-7 h-7 rounded-full border-2 border-white bg-gray-100 flex items-center justify-center text-[9px] font-bold text-black/30">
-                   {String.fromCharCode(64 + i)}
-                 </div>
-              ))}
-           </div>
-        </div>
-
-        <p className="text-xs opacity-50 leading-relaxed font-medium px-1">{fleet.description}</p>
-
-        <div className="flex items-center justify-between pt-6 border-t border-black/5">
-           <div className="px-1">
-              <p className="text-[10px] font-bold tracking-wide opacity-20 mb-1">Corporate Rate</p>
-              <div className="flex items-baseline gap-1">
-                 <span className="text-2xl font-bold tabular-nums tracking-tighter">${fleet.baseRate}</span>
-                 <span className="text-[10px] font-semibold opacity-30">/trip</span>
-              </div>
-           </div>
-           <button 
-             onClick={() => onBook(fleet)}
-             className="px-8 py-4 bg-black text-white rounded-2xl text-[10px] font-bold tracking-wide hover:bg-blue-600 transition-all shadow-xl shadow-black/10 active:scale-95"
-           >
-             Book Service
-           </button>
-        </div>
+      <div className="absolute bottom-6 left-6 right-6 text-white">
+         <div className="flex items-center gap-2 mb-2">
+           <div className="w-1.5 h-1.5 rounded-full bg-blue-400"></div>
+           <p className="text-[10px] font-bold tracking-wide opacity-80 uppercase">{fleet.features.join(" • ")}</p>
+         </div>
+         
+         <h4 className="text-2xl font-bold font-sans tracking-tight leading-none mb-2">{fleet.name}</h4>
       </div>
     </motion.div>
   );
@@ -692,11 +662,11 @@ function OffersCarousel() {
 
 function ServiceCard({ service }: { service: any }) {
   return (
-    <div className="native-card overflow-hidden group active:scale-[0.98] transition-all relative h-[300px] bg-black rounded-[1.5rem]">
+    <div className="native-card overflow-hidden group transition-all relative h-[300px] bg-black rounded-[1.5rem]">
       <img 
         src={service.image} 
         alt={service.name} 
-        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 ease-out"
+        className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-out"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
       
@@ -711,7 +681,7 @@ function ServiceCard({ service }: { service: any }) {
         <p className="text-[10px] opacity-60 font-medium leading-relaxed mb-4 line-clamp-2 pr-4">{service.description}</p>
         
         <div className="flex items-center justify-between pt-4 border-t border-white/10">
-           <button className="w-full text-[10px] font-bold tracking-wide bg-white text-black py-3.5 rounded-xl active:scale-95 transition-all hover:bg-blue-600 hover:text-white shadow-2xl">
+           <button className="w-full text-[10px] font-bold tracking-wide bg-white text-black py-3.5 rounded-xl transition-all shadow-2xl">
              Select Service
            </button>
         </div>
@@ -737,7 +707,7 @@ function InfiniteCarousel({ images, speed }: { images: string[], speed: number }
       >
         {doubledImages.map((src, idx) => (
           <div key={idx} className="w-64 h-64 rounded-[1.5rem] overflow-hidden border border-black/5 flex-shrink-0">
-            <img src={src} alt="Gallery" className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700" />
+            <img src={src} alt="Gallery" className="w-full h-full object-cover transition-all duration-700" />
           </div>
         ))}
       </motion.div>
@@ -754,7 +724,7 @@ const FAQItem: React.FC<{ question: string, answer: string }> = ({ question, ans
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-4 flex justify-between items-center text-left group"
       >
-        <span className="text-sm font-bold text-black/70 group-hover:text-black transition-colors">{question}</span>
+        <span className="text-sm font-bold text-black/70 transition-colors">{question}</span>
         <motion.div
           animate={{ rotate: isOpen ? 45 : 0 }}
           className="text-black/20"
