@@ -681,12 +681,6 @@ function ServiceCard({ service }: { service: any }) {
 
         <h4 className="text-xl font-bold font-sans tracking-tight mb-2 leading-none">{service.name}</h4>
         <p className="text-[10px] opacity-60 font-medium leading-relaxed mb-4 line-clamp-2 pr-4">{service.description}</p>
-        
-        <div className="flex items-center justify-between pt-4 border-t border-white/10">
-           <button className="w-full text-[10px] font-bold tracking-wide bg-white text-black py-3.5 rounded-xl transition-all shadow-2xl">
-             Select Service
-           </button>
-        </div>
       </div>
     </div>
   );
