@@ -210,8 +210,13 @@ export default function App() {
 
   return (
     <div className="h-screen bg-[var(--color-brand-secondary)] flex flex-col overflow-y-auto hide-scrollbar max-w-md mx-auto relative shadow-2xl">
+      {/* Top Announcement Bar */}
+      <div className="bg-black text-white py-5 text-center text-[9px] font-bold tracking-[0.3em] uppercase shrink-0 z-50">
+        Worldwide Elite Service • 24/7 Concierge
+      </div>
+
       {/* Native System Header Simulation */}
-      <div className="absolute top-0 left-0 right-0 z-40 pt-10 px-4 flex justify-between items-center bg-transparent pointer-events-none">
+      <div className="absolute top-[52px] left-0 right-0 z-40 pt-10 px-4 flex justify-between items-center bg-transparent pointer-events-none">
         <div className="pointer-events-auto">
           <h1 className="text-[10px] font-semibold tracking-[0.1em] text-white/50 mb-1">FleetFlow Pro</h1>
           <p className="text-xl font-bold font-sans tracking-tight text-white">Enterprise Mobility</p>
@@ -229,7 +234,7 @@ export default function App() {
       <div className="flex-1 space-y-12 pb-8">
         {/* Hero Section */}
         <section className="">
-          <div className="relative h-[80vh] rounded-b-[3.5rem] overflow-hidden group">
+          <div className="relative h-[80vh] rounded-b-[3.5rem] overflow-hidden group isolate">
             <img 
               src="https://res.cloudinary.com/dopnnowvl/image/upload/f_auto,q_auto/Image_13-04-2026_à_00.37_rj8ngz" 
               alt="Elite Service Car" 
