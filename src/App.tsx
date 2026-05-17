@@ -234,7 +234,7 @@ export default function App() {
       <div className="flex-1 space-y-12 pb-8">
         {/* Hero Section */}
         <section className="">
-          <div className="relative h-[80vh] rounded-b-[3.5rem] overflow-hidden group isolate">
+          <div className="relative h-[80vh] rounded-b-[2rem] overflow-hidden group isolate">
             <img 
               src="https://res.cloudinary.com/dopnnowvl/image/upload/f_auto,q_auto/Image_13-04-2026_à_00.37_rj8ngz" 
               alt="Elite Service Car" 
