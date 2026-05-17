@@ -40,6 +40,8 @@ import {
 } from "recharts";
 import { cn } from "./lib/utils";
 
+import { FLEETS } from "./data";
+
 // --- Types ---
 interface Fleet {
   id: string;
@@ -121,7 +123,7 @@ const OFFERS = [
 ];
 
 export default function App() {
-  const [fleets, setFleets] = useState<Fleet[]>([]);
+  const [fleets, setFleets] = useState<Fleet[]>(FLEETS);
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
@@ -137,10 +139,12 @@ export default function App() {
   const fetchFleets = async () => {
     try {
       const res = await fetch("/api/fleets");
-      const data = await res.json();
-      setFleets(data);
+      if (res.ok) {
+        const data = await res.json();
+        setFleets(data);
+      }
     } catch (err) {
-      console.error(err);
+      console.error("Failed to fetch fleets, using local data:", err);
     } finally {
       setLoading(false);
     }
@@ -149,10 +153,12 @@ export default function App() {
   const fetchBookings = async () => {
     try {
       const res = await fetch("/api/bookings");
-      const data = await res.json();
-      setBookings(data);
+      if (res.ok) {
+        const data = await res.json();
+        setBookings(data);
+      }
     } catch (err) {
-      console.error(err);
+      console.error("Failed to fetch bookings:", err);
     }
   };
 
@@ -203,7 +209,7 @@ export default function App() {
   return (
     <div className="h-screen bg-[var(--color-brand-secondary)] flex flex-col overflow-y-auto hide-scrollbar max-w-md mx-auto relative shadow-2xl">
       {/* Native System Header Simulation */}
-      <div className="absolute top-0 left-0 right-0 z-40 pt-10 px-6 flex justify-between items-center bg-transparent pointer-events-none">
+      <div className="absolute top-0 left-0 right-0 z-40 pt-10 px-4 flex justify-between items-center bg-transparent pointer-events-none">
         <div className="pointer-events-auto">
           <h1 className="text-[10px] font-semibold tracking-[0.1em] text-white/50 mb-1">FleetFlow Pro</h1>
           <p className="text-xl font-bold font-sans tracking-tight text-white">Enterprise Mobility</p>
@@ -246,28 +252,28 @@ export default function App() {
 
         {/* Section: Meilleur Offre */}
         <section className="space-y-6">
-           <div className="px-6 flex justify-between items-center">
+           <div className="px-4 flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <h2 className="text-xl font-bold font-sans tracking-tight text-black/80">Meilleures offres</h2>
                 <ChevronRight size={18} className="text-black/30" />
               </div>
            </div>
            
-           <div className="px-6 h-[220px]">
+           <div className="px-4 h-[220px]">
               <OffersCarousel />
            </div>
         </section>
 
         {/* Section 2.5: Elite Services */}
         <section className="space-y-6">
-           <div className="px-6 flex justify-between items-center">
+           <div className="px-4 flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <h2 className="text-xl font-bold font-sans tracking-tight text-black/80">Elite services</h2>
                 <ChevronRight size={18} className="text-black/30" />
               </div>
            </div>
 
-           <div className="flex overflow-x-auto px-6 gap-6 hide-scrollbar snap-x snap-mandatory">
+           <div className="flex overflow-x-auto px-4 gap-4 hide-scrollbar snap-x snap-mandatory">
               {SERVICES.map(service => (
                 <div key={service.id} className="min-w-[280px] snap-center py-2">
                   <ServiceCard service={service} />
@@ -278,7 +284,7 @@ export default function App() {
 
         {/* Section 2: Fleet Catalog */}
         <section className="space-y-6">
-           <div className="px-6 flex justify-between items-center">
+           <div className="px-4 flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <h2 className="text-xl font-bold font-sans tracking-tight text-black/80">Discover our vehicles</h2>
                 <ChevronRight size={18} className="text-black/30" />
@@ -290,7 +296,7 @@ export default function App() {
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="mx-6 p-6 bg-blue-600 text-white rounded-[1.5rem] shadow-2xl shadow-blue-500/30 relative overflow-hidden mb-8"
+                  className="mx-4 p-6 bg-blue-600 text-white rounded-[1.5rem] shadow-2xl shadow-blue-500/30 relative overflow-hidden mb-8"
                 >
                    <div className="relative z-10">
                       <h4 className="flex items-center gap-2 text-xs font-bold mb-3">
@@ -304,7 +310,7 @@ export default function App() {
                 </motion.div>
               )}
 
-              <div className="flex overflow-x-auto px-6 gap-6 hide-scrollbar snap-x snap-mandatory">
+              <div className="flex overflow-x-auto px-4 gap-4 hide-scrollbar snap-x snap-mandatory">
                  {fleets.map(f => (
                    <div key={f.id} className="min-w-[320px] snap-center py-2">
                      <FleetCard 
@@ -320,7 +326,7 @@ export default function App() {
 
         {/* Section 2.6: Atmosphere Gallery */}
         <section className="space-y-6 overflow-hidden">
-           <div className="px-6 flex justify-between items-center">
+           <div className="px-4 flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <h2 className="text-xl font-bold font-sans tracking-tight text-black/80">Premium lifestyle</h2>
                 <ChevronRight size={18} className="text-black/30" />
@@ -328,7 +334,7 @@ export default function App() {
            </div>
 
            <div className="relative">
-              <div className="flex gap-4">
+              <div className="flex gap-2">
                  <InfiniteCarousel images={GALLERY_IMAGES} speed={40} />
               </div>
               <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[var(--color-brand-secondary)] to-transparent z-10 pointer-events-none"></div>
@@ -337,7 +343,7 @@ export default function App() {
         </section>
 
         {/* Quick Actions Section */}
-        <section className="px-6 flex gap-4">
+        <section className="px-4 flex gap-4">
            <button className="flex-1 py-5 bg-white text-black/60 rounded-xl text-[10px] font-bold tracking-widest hover:bg-white/80 transition-all active:scale-95 uppercase shadow-sm">
              Contact Us
            </button>
@@ -350,7 +356,7 @@ export default function App() {
         </section>
 
         {/* Section 1: Overview & Intelligence */}
-        <section className="px-6 space-y-8">
+        <section className="px-4 space-y-8">
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity"></div>
             <div className="relative bg-white p-6 rounded-[1.5rem] border border-black/5 shadow-sm">
@@ -375,7 +381,7 @@ export default function App() {
 
 
         {/* Section 3: Activity Ledger */}
-        <section className="px-6 space-y-6">
+        <section className="px-4 space-y-6">
            <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <h2 className="text-xl font-bold font-sans tracking-tight text-black/80">Recent activity</h2>
@@ -411,7 +417,7 @@ export default function App() {
         </section>
 
         {/* Section 4: Profile & Settings */}
-        <section className="px-6 pb-20 space-y-10">
+        <section className="px-4 pb-20 space-y-10">
            <div className="flex flex-col items-center py-12 bg-white rounded-[2.2rem] border border-black/5 shadow-sm">
               <div className="w-28 h-28 rounded-[1.9rem] bg-black text-white flex items-center justify-center text-5xl font-bold font-sans shadow-2xl mb-6 active:scale-95 transition-transform">
                 FF
@@ -720,7 +726,7 @@ function InfiniteCarousel({ images, speed }: { images: string[], speed: number }
   return (
     <div className="flex overflow-hidden whitespace-nowrap">
       <motion.div 
-        className="flex gap-4 shrink-0"
+        className="flex gap-2 shrink-0"
         animate={{ x: ["0%", "-50%"] }}
         transition={{ 
           repeat: Infinity, 
