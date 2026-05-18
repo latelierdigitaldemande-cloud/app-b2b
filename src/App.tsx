@@ -664,7 +664,7 @@ function OffersCarousel() {
 
 function ServiceCard({ service }: { service: any }) {
   return (
-    <div className="native-card overflow-hidden group transition-all relative h-[360px] bg-black rounded-[1.5rem]">
+    <div className="native-card overflow-hidden group transition-all relative h-[400px] bg-black rounded-xl">
       <img 
         src={service.image} 
         alt={service.name} 
