@@ -263,7 +263,7 @@ export default function App() {
               </div>
            </div>
            
-           <div className="px-4 h-[330px]">
+           <div className="px-4 h-[300px]">
               <OffersCarousel />
            </div>
         </section>
@@ -664,7 +664,7 @@ function OffersCarousel() {
 
 function ServiceCard({ service }: { service: any }) {
   return (
-    <div className="native-card overflow-hidden group transition-all relative h-[400px] bg-black rounded-2xl">
+    <div className="native-card overflow-hidden group transition-all relative h-[400px] bg-black rounded-xl">
       <img 
         src={service.image} 
         alt={service.name} 
