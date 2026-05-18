@@ -27,7 +27,7 @@
 }
 
 .native-card {
-  @apply bg-white rounded-[1.7rem] border border-black/[0.03] shadow-[0_4px_20px_-8px_rgba(0,0,0,0.05)];
+  @apply bg-white border border-black/[0.03] shadow-[0_4px_20px_-8px_rgba(0,0,0,0.05)];
 }
 
 .hide-scrollbar::-webkit-scrollbar {

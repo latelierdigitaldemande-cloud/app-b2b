@@ -535,7 +535,7 @@ function TabButton({ active, icon, label, onClick }: { active: boolean, icon: an
 
 function StatCard({ label, value, change }: { label: string, value: string, change: string }) {
   return (
-    <div className="native-card p-5">
+    <div className="native-card p-5 rounded-3xl">
       <p className="text-[10px] tracking-wider font-bold opacity-30 mb-2">{label}</p>
       <div className="flex items-end justify-between">
         <h4 className="text-xl font-bold tabular-nums tracking-tighter">{value}</h4>
@@ -583,7 +583,7 @@ const FleetCard: React.FC<{ fleet: Fleet, onBook: (f: Fleet) => any, isRecommend
   return (
     <motion.div 
       className={cn(
-        "native-card overflow-hidden group transition-all relative h-[200px]",
+        "native-card overflow-hidden group transition-all relative h-[200px] rounded-3xl",
         isRecommended && "ring-2 ring-blue-500 ring-offset-4 shadow-2xl"
       )}
     >
@@ -664,7 +664,7 @@ function OffersCarousel() {
 
 function ServiceCard({ service }: { service: any }) {
   return (
-    <div className="native-card overflow-hidden group transition-all relative h-[400px] bg-black rounded-xl">
+    <div className="native-card overflow-hidden group transition-all relative h-[400px] bg-black rounded-lg">
       <img 
         src={service.image} 
         alt={service.name} 
