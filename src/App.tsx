@@ -664,7 +664,7 @@ function OffersCarousel() {
 
 function ServiceCard({ service }: { service: any }) {
   return (
-    <div className="native-card overflow-hidden group transition-all relative h-[400px] bg-black rounded-lg">
+    <div className="native-card overflow-hidden group transition-all relative h-[400px] bg-black rounded-2xl">
       <img 
         src={service.image} 
         alt={service.name} 
@@ -679,8 +679,10 @@ function ServiceCard({ service }: { service: any }) {
            </div>
         </div>
 
-        <h4 className="text-xl font-bold font-sans tracking-tight mb-2 leading-none">{service.name}</h4>
-        <p className="text-[10px] opacity-60 font-medium leading-relaxed mb-4 line-clamp-2 pr-4">{service.description}</p>
+        <div className="backdrop-blur-sm bg-black/30 border border-white/10 rounded-xl p-4 mb-1">
+          <h4 className="text-xl font-bold font-sans tracking-tight mb-2 leading-none">{service.name}</h4>
+          <p className="text-[10px] opacity-70 font-medium leading-relaxed line-clamp-2">{service.description}</p>
+        </div>
       </div>
     </div>
   );
